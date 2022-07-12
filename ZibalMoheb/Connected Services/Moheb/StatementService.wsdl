@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StatementService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStatementService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token10 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:RequireThumbprintReference />
+                <sp:WssX509V3Token10 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportRefThumbprint />
+            <sp:MustSupportRefEncryptedKey />
+            <sp:RequireSignatureConfirmation />
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStatementService_GetAccountTransaction_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStatementService_GetAccountTransaction_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStatementService_GetTransactionNoPerDay_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStatementService_GetTransactionNoPerDay_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KPP.Moheb.BusinessFacade.Services.Account.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStatementService_GetAccountTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IStatementService_GetAccountTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatementService_GetTransactionNoPerDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionNoPerDay" />
+  </wsdl:message>
+  <wsdl:message name="IStatementService_GetTransactionNoPerDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionNoPerDayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStatementService">
+    <wsdl:operation name="GetAccountTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatementService/GetAccountTransaction" message="tns:IStatementService_GetAccountTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatementService/GetAccountTransactionResponse" message="tns:IStatementService_GetAccountTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionNoPerDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatementService/GetTransactionNoPerDay" message="tns:IStatementService_GetTransactionNoPerDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatementService/GetTransactionNoPerDayResponse" message="tns:IStatementService_GetTransactionNoPerDay_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IStatementService" type="tns:IStatementService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IStatementService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAccountTransaction">
+      <soap12:operation soapAction="http://tempuri.org/IStatementService/GetAccountTransaction" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStatementService_GetAccountTransaction_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStatementService_GetAccountTransaction_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionNoPerDay">
+      <soap12:operation soapAction="http://tempuri.org/IStatementService/GetTransactionNoPerDay" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStatementService_GetTransactionNoPerDay_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStatementService_GetTransactionNoPerDay_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatementService">
+    <wsdl:port name="WSHttpBinding_IStatementService" binding="tns:WSHttpBinding_IStatementService">
+      <soap12:address location="https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>MIIE5TCCA82gAwIBAgIUOOVRAZ5n0rc8qcuHQADZUK0EXyAwDQYJKoZIhvcNAQEFBQAwgY0xgYowCQYDVQQGEwJJUjANBgNVBAcTBlRlaHJhbjANBgNVBAgTBlRlaHJhbjAPBgNVBAoTCFNvZnR3YXJlMBIGA1UECxMLU29mdHdhcmUgQ0EwGAYJKoZIhvcNAQkBFgtJbmZvQGtwcC5pcjAgBgNVBAMTGUtob2JyZSBQYXJkYXogUGFycyBDby5MdGQwHhcNMTgxMjExMDA1MzU4WhcNMjgxMjExMDA1MzU4WjBwMQswCQYDVQQGEwJJUjEPMA0GA1UECAwGVGVocmFuMQ8wDQYDVQQHDAZUZWhyYW4xFDASBgNVBAoMC0JhbmsgTWVsbGF0MQ4wDAYDVQQLDAVNb2hlYjEZMBcGA1UEAwwQKi5tZWxsYXRtb2hlYi5pcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKnmptcBkGF/G9cbneV98q47qt/rcuHVICvsSZDYpby03BnRg02u1kNVefE3Iu+id01EaePTzamduSxuQWc5uQDJoTLviKN35zd5Xxbu7354WVUaGQ1gR8RcYoysOQ+u3lO+5c3aRCOzcDiIjsTVPzIXdFLj548sUM27Sy1LL/g0ibZxfxTaLl0jzVGdVHXyFfOmN7Futd1yAg9k+2TEZlhf2vTg/jhcCuAacOe/N4dcmorMK+gvH+B55WkmrbprkRQo7tQz9HDtgwuhFeIKWVxTPxjVSC7j8gBDWKprK7weoU1yTKvafKnNSufgw3VN/wB+Fn1cKUoZXAKtgZZLbEMCAwEAAaOCAVcwggFTMA0GA1UdCgQGMAQDAgZAMAsGA1UdDwQEAwIFoDCBygYDVR0BBIHCMIG/gBRMrKX/icMXuq4reOsZMKVNxEcvV6GBkDCBjTGBijAJBgNVBAYTAklSMA0GA1UEBxMGVGVocmFuMA0GA1UECBMGVGVocmFuMA8GA1UEChMIU29mdHdhcmUwEgYDVQQLEwtTb2Z0d2FyZSBDQTAYBgkqhkiG9w0BCQEWC0luZm9Aa3BwLmlyMCAGA1UEAxMZS2hvYnJlIFBhcmRheiBQYXJzIENvLkx0ZIIUVy9HxE2lMBnreCuuuhfDif+lrEwwHQYDVR0OBBYEFCBfBK1Q2QBAh8upPLfSZ54BUeU4MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAqBgNVHR8EIzAhMB+gHaAbhhlodHRwOi8va3BwLmlyL2NybC9rcHAuY3JsMA0GCSqGSIb3DQEBBQUAA4IBAQCn/rVA2Y8+ctLRxt9K0WNXBWJhJGBRFoaav7F2dVOuOCjJf4jQmGen7fvE+qJ1MalXL8Cf+593fWSTYXWnZxkynnhZDB12TyGIJdiwiclFy6yYSoVib6nHY5xk3dO5K20q9DcYrFe/5WUD2miuoCYdqYhBWaDpJp6n3TtlRTmt16Eig7eWr2414ISnwo37AoDOBv7G0kj13sd7pyNkoQqmkICJZJVkF8IQZNd3UsqVsljZlD0Bx0WUaSnAV/K6U2D5GRXPFHJNzKO187LIzP2hpU3kFPNDCLOIUpLlnNkIJ/P5t5oNDkQ6CXaa9Defrom1kpraxKjAprXU+oFfj4qc</X509Certificate>
+            </X509Data>
+          </KeyInfo>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

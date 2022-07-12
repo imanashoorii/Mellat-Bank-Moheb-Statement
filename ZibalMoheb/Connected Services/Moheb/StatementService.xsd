@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KPP.Moheb.BusinessFacade.Services.Account.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KPP.Moheb.BusinessFacade.Services.Account.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AccountTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountTransactions" nillable="true" type="tns:ArrayOfAccountTransaction" />
+      <xs:element minOccurs="0" name="ResponseCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountTransactionResponse" nillable="true" type="tns:AccountTransactionResponse" />
+  <xs:complexType name="ArrayOfAccountTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountTransaction" nillable="true" type="tns:AccountTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountTransaction" nillable="true" type="tns:ArrayOfAccountTransaction" />
+  <xs:complexType name="AccountTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountTransactionID" type="xs:long" />
+      <xs:element minOccurs="0" name="Balance" type="xs:long" />
+      <xs:element minOccurs="0" name="BranchCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ChqNumber" type="xs:long" />
+      <xs:element minOccurs="0" name="ChqSeri" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditAmount" type="xs:long" />
+      <xs:element minOccurs="0" name="DebitAmount" type="xs:long" />
+      <xs:element minOccurs="0" name="DepositID" type="xs:long" />
+      <xs:element minOccurs="0" name="DocType" type="xs:int" />
+      <xs:element minOccurs="0" name="EffectiveDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EffectiveTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowSeqPerDay" type="xs:long" />
+      <xs:element minOccurs="0" name="TransDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountTransaction" nillable="true" type="tns:AccountTransaction" />
+  <xs:complexType name="TransactionNoPerDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseCode" type="xs:int" />
+      <xs:element minOccurs="0" name="TransactionNo" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionNoPerDay" nillable="true" type="tns:TransactionNoPerDay" />
+</xs:schema>

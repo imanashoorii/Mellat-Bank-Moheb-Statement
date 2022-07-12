@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <system.serviceModel>
+      <behaviors>
+        <endpointBehaviors>
+          <behavior name="zibalMoheb">
+            <clientCredentials>
+              <serviceCertificate>
+                <authentication certificateValidationMode="None" revocationMode="NoCheck"/>
+                <defaultCertificate storeLocation="LocalMachine" storeName="TrustedPeople" x509FindType="FindBySubjectName" findValue="*.mellatmoheb.ir"/>
+              </serviceCertificate>
+              <clientCertificate storeLocation="LocalMachine" storeName="My" x509FindType="FindBySubjectName" findValue="zibalmoheb.bankmellat.ir"/>
+            </clientCredentials>
+          </behavior>
+        </endpointBehaviors>
+      </behaviors>
+        <bindings>
+            <customBinding>
+                <binding name="WSHttpBinding_IStatementService">
+                    <security defaultAlgorithmSuite="Default" authenticationMode="MutualCertificate"
+                        requireDerivedKeys="true" includeTimestamp="true" messageProtectionOrder="SignBeforeEncrypt"
+                        messageSecurityVersion="WSSecurity11WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10"
+                        requireSignatureConfirmation="true">
+                        <localClientSettings detectReplays="true" />
+                        <localServiceSettings detectReplays="true" />
+                    </security>
+                    <textMessageEncoding />
+                    <httpsTransport />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://zibal.mellatmoheb.ir/ExternalServices/Account/StatementService.svc"
+                binding="customBinding" bindingConfiguration="WSHttpBinding_IStatementService"
+                contract="Moheb.IStatementService" name="WSHttpBinding_IStatementService" behaviorConfiguration="zibalMoheb">
+                <identity>
+                  <dns value="*.mellatmoheb.ir"/>
+                </identity>
+            </endpoint>
+        </client>
+    </system.serviceModel>
+</configuration>
