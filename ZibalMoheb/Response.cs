@@ -32,7 +32,7 @@ namespace ZibalMoheb
                             RegexOptions.IgnoreCase
                 );
                 Match authMatch = regexpAuth.Match(request.URL.ToString());
-                const String authKey = "vzxMMrCnd19pFWwvQxpA5qbmcYH3KISm_9RUNQtF538";
+                const String authKey = "******";
 
                 if (!request.URL.ToString().Contains("authorization") || authMatch.Groups[1].Value != authKey)
                 {
